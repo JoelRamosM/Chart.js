@@ -46,7 +46,14 @@ var data = {
 ```
 
 The line chart requires an array of labels for each of the data points. This is shown on the X axis.
-The data for line charts is broken up into an array of datasets. Each dataset has a colour for the fill, a colour for the line and colours for the points and strokes of the points. These colours are strings just like CSS. You can use RGBA, RGB, HEX or HSL notation.
+The data for line charts is broken up into an array of datasets. Each dataset has a colour for the fill, a colour for the line and colours for the points and strokes of the points. These colours are strings just like CSS. You can use RGBA, RGB, HEX or HSL notation. You can also specify a color for each point that you
+have in your array or to a specific point, if you would like to mark the current month for example, you can pass an object to the data array in a dataset object.
+#Data Structure of data object
+	{
+		value:666,
+		pointColor:"#fff"
+		pointHighlightFill:"rgb(255,0,0)"
+	}
 
 The label key on each dataset is optional, and can be used when generating a scale for the chart.
 

@@ -110,13 +110,13 @@
 				helpers.each(dataset.data,function(dataPoint,index){
 					//Add a new point for each piece of data, passing any required data to draw.
 					datasetObject.points.push(new this.PointClass({
-						value : dataPoint,
+						value : dataPoint["value"]||dataPoint,
 						label : data.labels[index],
 						datasetLabel: dataset.label,
-						strokeColor : dataset.pointStrokeColor,
-						fillColor : dataset.pointColor,
-						highlightFill : dataset.pointHighlightFill || dataset.pointColor,
-						highlightStroke : dataset.pointHighlightStroke || dataset.pointStrokeColor
+						strokeColor : dataPoint["pointStrokeColor"]||dataset.pointStrokeColor,
+						fillColor : dataPoint["pointColor"]||dataset.pointColor,
+						highlightFill : (dataPoint["pointHighlightFill"]||dataPoint["pointColor"])||(dataset.pointHighlightFill || dataset.pointColor),
+						highlightStroke : (dataPoint["pointHighlightStroke"]||dataPoint["pointStrokeColor"])||(dataset.pointHighlightStroke || dataset.pointStrokeColor)
 					}));
 				},this);
 
@@ -229,6 +229,7 @@
 			helpers.each(valuesArray,function(value,datasetIndex){
 				//Add a new point for each piece of data, passing any required data to draw.
 				this.datasets[datasetIndex].points.push(new this.PointClass({
+					
 					value : value,
 					label : label,
 					datasetLabel: this.datasets[datasetIndex].label,

@@ -13,7 +13,14 @@
 
 
 	<script>
+		
 		var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+		var specificPoint = {
+			value:randomScalingFactor(),
+			pointColor:"rgb(23, 221, 23)",
+			pointHighlightFill:"#000",
+			pointHighlightStroke:"#fff"
+		};
 		var lineChartData = {
 			labels : ["January","February","March","April","May","June","July"],
 			datasets : [
@@ -35,7 +42,7 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(151,187,205,1)",
-					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),specificPoint,randomScalingFactor(),randomScalingFactor()]
 				}
 			]
 
